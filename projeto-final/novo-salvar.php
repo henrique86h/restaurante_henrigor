@@ -1,10 +1,10 @@
 <?php
 
-$produto = $_GET['produto'];
-$tipo = $_GET['tipo'];
-$descricao = $_GET['descricao'];
-$preco = $_GET['preco'];
-$imagem = $_GET['imagem'];
+$produto = $_POST['produto'];
+$tipo = $_POST['tipo'];
+$descricao = $_POST['descricao'];
+$preco = $_POST['preco'];
+$imagem = $_POST['imagem'];
 
 include "conexao.php";
 $sql = "insert into cafe (produto, tipo, descricao, preco, imagem) values('$produto', '$tipo', '$descricao', '$preco', '$imagem')";

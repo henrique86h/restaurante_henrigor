@@ -24,7 +24,7 @@
         <img class= "ornaments" src="img/ornaments-coffee.png" alt="ornaments">
     </section>
     <section class="container-form">
-        <form action="novo-salvar.php">
+        <form method="post" action="novo-salvar.php">
 
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="produto" placeholder="Digite o nome do produto" required>
