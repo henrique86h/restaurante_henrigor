@@ -54,7 +54,8 @@
         <td><a class="botao-editar" href="editar-produto.php?id=<?php echo $produtos['id'] ?>">Editar</a></td>
         <td>
           <form>
-            <input type="button" class="botao-excluir" value="Excluir">
+            <a href="excluir.php?id=<?php echo $produtos['id'] ?>">
+            <input type="button" class="botao-excluir" value="Excluir"></a>
           </form>
         </td>
         </tr>

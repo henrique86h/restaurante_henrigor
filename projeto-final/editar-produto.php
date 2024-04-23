@@ -32,11 +32,11 @@
       <div class="container-radio">
         <div>
             <label for="cafe">Café</label>
-            <input type="radio" id="cafe" name="tipo" value="Café" checked>
+            <input type="radio" id="cafe" name="tipo" value="cafe" checked>
         </div>
         <div>
             <label for="almoco">Almoço</label>
-            <input type="radio" id="almoco" name="tipo" value="Almoço">
+            <input type="radio" id="almoco" name="tipo" value="almoco">
         </div>
     </div>
 
