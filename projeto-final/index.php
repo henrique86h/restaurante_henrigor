@@ -32,48 +32,22 @@
 
         <?php
         
-        $produtosCafe = [
-            [
-                'nome' => "Café Cremoso",
-                'descricao' => "Café cremoso irresistivelmente suave e que envolve seu paladar",
-                'preco' => "R$ 5.00",
-                'imagem' => "img/cafe-cremoso.jpg"
-            ],
-            [
-                'nome' => "Café com Leite",
-                'descricao' => "A harmonia perfeita do café e do leite, uma experiência reconfortante",
-                'preco' => "R$ 2.00",
-                'imagem' => "img/cafe-com-leite.jpg"
-            ],
-            [
-                'nome' => "Cappuccino",
-                'descricao' => "Café suave, leite cremoso e uma pitada de sabor adocicado",
-                'preco' => "R$ 7.00",
-                'imagem' => "img/cappuccino.jpg"
-            ],
-            [
-                'nome' => "Café Gelado",
-                'descricao' => "Café gelado refrescante, adoçado e com notas sutis de baunilha ou caramelo.",
-                'preco' => "R$ 3.00",
-                'imagem' => "img/cafe-gelado.jpg"
-            ],
-        ]
-
+        include "conexao.php";
+        $sql = "select * from cafe order by preco asc ";
+        $resultado = mysqli_query($conexao, $sql);
         
+        while($produtos = mysqli_fetch_assoc($resultado)){
         ?>
-        <?php foreach ($produtosCafe as $cafe)
-        ?>
-           
-            
             <div class="container-cafe-manha-produtos">
-                <?php foreach ($produtosCafe as $cafe) {?>
+            
                 <div class="container-produto">
                     <div class="container-foto">
-                        <img src="img/ <?php echo $cafe['imagem'] ?>">
+                        <img src="img/ <?php echo $produtos['imagem'] ?>">
                     </div>
-                    <p><?php echo $cafe['nome'] ?></p>
-                    <p><?php echo $cafe['descricao'] ?></p>
-                    <p><?php echo $cafe['preco']  ?></p>
+                    <p><?php echo $produtos['produto'] ?></p>
+                    <p><?php echo $produtos['tipo'] ?></p>
+                    <p><?php echo $produtos['descricao'] ?></p>
+                    <p> R$<?php echo $produtos['preco'] ?></p>
                 </div>
                 <?php } ?>
             </div>

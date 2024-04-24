@@ -24,32 +24,68 @@
     <img class= "ornaments" src="img/ornaments-coffee.png" alt="ornaments">
   </section>
   <section class="container-form">
-    <form action="#">
+
+
+  <?php
+  $id = $_GET['id'];
+  $produto = "";
+  $tipo = "";
+  $descricao = "";
+  $preco = "";
+
+  include "conexao.php";
+  $sql = "select * from cafe where id = $id";
+  $resultado = mysqli_query($conexao, $sql);
+  while($produtos = mysqli_fetch_assoc($resultado)){
+      $produto = $produtos['produto'];
+      $tipo = $produtos['tipo'];
+      $descricao = $produtos['descricao'];
+      $preco = $produtos['preco'];
+  }
+  ?>
+
+    <form method="post" action="editar-salvar-produto.php?id=<?php echo $id ?>">
 
       <label for="nome">Nome</label>
-      <input type="text" id="nome" name="nome" placeholder="Digite o nome do produto" required>
+      <input type="text" id="nome" value="<?php echo $produto ?>" name="produto" placeholder="Digite o nome do produto" required>
 
       <div class="container-radio">
         <div>
             <label for="cafe">Café</label>
+            <?php
+            if($tipo == 'cafe'){ ?>
             <input type="radio" id="cafe" name="tipo" value="cafe" checked>
+            <?php }else{ ?>
+            <input type="radio" id="cafe" name="tipo" value="cafe">
+            <?php } ?>
+
+
+
         </div>
         <div>
             <label for="almoco">Almoço</label>
-            <input type="radio" id="almoco" name="tipo" value="almoco">
+          <?php
+            if($tipo == 'almoco' ){ ?>
+            <input type='radio' id='almoco' name='tipo' value='almoco' checked>
+            <?php }else{ ?>
+            <input type='radio' id='almoco' name='tipo' value='almoco'>
+            
+            <?php } ?>
+            
         </div>
     </div>
 
       <label for="descricao">Descrição</label>
-      <input type="text" id="descricao" name="descricao" placeholder="Digite uma descrição" required>
+      <input type="text" id="descricao" name="descricao" value="<?php echo $descricao ?>" placeholder="Digite uma descrição" required>
 
       <label for="preco">Preço</label>
-      <input type="text" id="preco" name="preco" placeholder="Digite uma descrição" required>
+      <input type="text" id="preco" value="<?php echo $preco ?>" name="preco" placeholder="Digite uma descrição" required>
 
       <label for="imagem">Envie uma imagem do produto</label>
       <input type="file" name="imagem" accept="image/*" id="imagem" placeholder="Envie uma imagem">
-
+      
       <input type="submit" name="editar" class="botao-cadastrar"  value="Editar produto"/>
+      
     </form>
 
   </section>
