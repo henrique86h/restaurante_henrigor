@@ -32,6 +32,7 @@
   $tipo = "";
   $descricao = "";
   $preco = "";
+  $imagem = "";
 
   include "conexao.php";
   $sql = "select * from cafe where id = $id";
@@ -41,10 +42,11 @@
       $tipo = $produtos['tipo'];
       $descricao = $produtos['descricao'];
       $preco = $produtos['preco'];
+      $imagem = $produtos['imagem'];
   }
   ?>
 
-    <form method="post" action="editar-salvar-produto.php?id=<?php echo $id ?>">
+    <form method="post" enctype="multipart/form-data" action="editar-salvar-produto.php?id=<?php echo $id ?>">
 
       <label for="nome">Nome</label>
       <input type="text" id="nome" value="<?php echo $produto ?>" name="produto" placeholder="Digite o nome do produto" required>
@@ -82,7 +84,7 @@
       <input type="text" id="preco" value="<?php echo $preco ?>" name="preco" placeholder="Digite uma descrição" required>
 
       <label for="imagem">Envie uma imagem do produto</label>
-      <input type="file" name="imagem" accept="image/*" id="imagem" placeholder="Envie uma imagem">
+      <input type="file" name="imagem" required name="imagem" accept="img/ <?php echo $produtos['imagem'] ?>" id="imagem" placeholder="Envie uma imagem">
       
       <input type="submit" name="editar" class="botao-cadastrar"  value="Editar produto"/>
       

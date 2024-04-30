@@ -32,7 +32,7 @@
           <th>Tipo</th>
           <th>Descricão</th>
           <th>Valor</th>
-          <th colspan="2">Ação</th>
+          <th colspan="3">Ação</th>
         </tr>
       </thead>
       <tbody>
@@ -51,6 +51,7 @@
         <td><?php echo $produtos['tipo'] ?></td>
         <td><?php echo $produtos['descricao'] ?></td>
         <td> R$<?php echo $produtos['preco'] ?></td>
+        <td><img src="img/ <?php echo $produtos['imagem'] ?>"></td>
         <td><a class="botao-editar" href="editar-produto.php?id=<?php echo $produtos['id'] ?>">Editar</a></td>
         <td>
           <form>
@@ -67,7 +68,10 @@
       </tbody>
     </table>
   <a class="botao-cadastrar" href="cadastrar-produto.php">Cadastrar produto</a>
-  <form action="#" method="post">
+
+  
+
+  <form action="autoload.inc.php" method="post">
     <input type="submit" class="botao-cadastrar" value="Baixar Relatório"/>
   </form>
   </section>

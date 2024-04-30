@@ -30,16 +30,16 @@
 
 
 
-        <?php
+        
+            <div class="container-cafe-manha-produtos">
+            <?php
         
         include "conexao.php";
-        $sql = "select * from cafe order by preco asc ";
+        $sql = "select * from cafe where tipo = 'cafe' order by preco asc ";
         $resultado = mysqli_query($conexao, $sql);
         
         while($produtos = mysqli_fetch_assoc($resultado)){
         ?>
-            <div class="container-cafe-manha-produtos">
-            
                 <div class="container-produto">
                     <div class="container-foto">
                         <img src="img/ <?php echo $produtos['imagem'] ?>">
@@ -51,93 +51,34 @@
                 </div>
                 <?php } ?>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-            
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
         </section>
         <section class="container-almoco">
             <div class="container-almoco-titulo">
                 <h3>Opções para o Almoço</h3>
                 <img class= "ornaments" src="img/ornaments-coffee.png" alt="ornaments">
             </div>
+            
             <div class="container-almoco-produtos">
+            <?php
+        
+        include "conexao.php";
+        $sql = "select * from cafe where tipo = 'almoco' order by preco asc ";
+        $resultado = mysqli_query($conexao, $sql);
+        
+        while($produtos = mysqli_fetch_assoc($resultado)){
+        ?>
                 <div class="container-produto">
                     <div class="container-foto">
-                        <img src="img/bife.jpg">
+                        <img src="img/ <?php echo $produtos['imagem'] ?>">
                     </div>
-                    <p>Bife</p>
-                    <p>Bife, arroz com feijão e uma deliciosa batata frita</p>
-                    <p>R$ 27.90</p>
+                    <p><?php echo $produtos['produto'] ?></p>
+                    <p><?php echo $produtos['tipo'] ?></p>
+                    <p><?php echo $produtos['descricao'] ?></p>
+                    <p> R$<?php echo $produtos['preco'] ?></p>
                 </div>
-                <div class="container-produto">
-                    <div class="container-foto">
-                        <img src="img/prato-peixe.jpg">
-                    </div>
-                    <p>Filé de peixe</p>
-                    <p>Filé de peixe salmão assado, arroz, feijão verde e tomate.</p>
-                    <p>R$ 24.99</p>
-                </div>
-                <div class="container-produto">
-                    <div class="container-foto">
-                        <img src="img/prato-frango.jpg">
-                    </div>
-                    <p>Frango</p>
-                    <p>Saboroso frango à milanesa com batatas fritas, salada de repolho e molho picante</p>
-                    <p>R$ 23.00</p>
-                </div>
-                <div class="container-produto">
-                    <div class="container-foto">
-                        <img src="img/fettuccine.jpg">
-                    </div>
-                    <p>Fettuccine</p>
-                    <p>Prato italiano autêntico da massa do fettuccine com peito de frango grelhado</p>
-                    <p>R$ 22.50</p>
-                </div>
+                <?php } ?>
             </div>
-
+            
         </section>
     </main>
 </body>
