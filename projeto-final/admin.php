@@ -51,7 +51,7 @@
         <td><?php echo $produtos['tipo'] ?></td>
         <td><?php echo $produtos['descricao'] ?></td>
         <td> R$<?php echo $produtos['preco'] ?></td>
-        <td><img src="img/ <?php echo $produtos['imagem'] ?>"></td>
+        <td><img src="img/<?php echo $produtos['imagem'] ?>" width="150"></td>
         <td><a class="botao-editar" href="editar-produto.php?id=<?php echo $produtos['id'] ?>">Editar</a></td>
         <td>
           <form>

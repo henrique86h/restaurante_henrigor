@@ -42,7 +42,7 @@
         ?>
                 <div class="container-produto">
                     <div class="container-foto">
-                        <img src="img/ <?php echo $produtos['imagem'] ?>">
+                        <img src="img/<?php echo $produtos['imagem'] ?>">
                     </div>
                     <p><?php echo $produtos['produto'] ?></p>
                     <p><?php echo $produtos['tipo'] ?></p>
@@ -69,7 +69,7 @@
         ?>
                 <div class="container-produto">
                     <div class="container-foto">
-                        <img src="img/ <?php echo $produtos['imagem'] ?>">
+                        <img src="img/<?php echo $produtos['imagem'] ?>">
                     </div>
                     <p><?php echo $produtos['produto'] ?></p>
                     <p><?php echo $produtos['tipo'] ?></p>

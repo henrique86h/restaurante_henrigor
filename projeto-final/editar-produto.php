@@ -84,8 +84,9 @@
       <input type="text" id="preco" value="<?php echo $preco ?>" name="preco" placeholder="Digite uma descrição" required>
 
       <label for="imagem">Envie uma imagem do produto</label>
-      <input type="file" name="imagem" required name="imagem" accept="img/ <?php echo $produtos['imagem'] ?>" id="imagem" placeholder="Envie uma imagem">
-      
+      <input type="file" name="imagem" name="imagem" accept="image/*" id="imagem" placeholder="Envie uma imagem">
+      <img src="img/<?php echo $imagem ?>" width="150">
+
       <input type="submit" name="editar" class="botao-cadastrar"  value="Editar produto"/>
       
     </form>
